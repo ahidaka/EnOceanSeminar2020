@@ -9,7 +9,7 @@ https://ahidaka.github.io/EnOceanSeminar2020/
 ----
 ## EnOceanフィルター簡単プログラム
 
-### 参照リポジトリ
+### 参考リポジトリ
 
 https://github.com/ahidaka/EnOceanWindowsSamples
 
@@ -18,12 +18,10 @@ https://github.com/ahidaka/EnOceanWindowsSamples
 Visual Studioでコンパイルする簡単なC#プログラムを動作させて、EnOceanゲートウェイ開発に必要な次の基本的な機能を学習します。
 
 - ESP3パケットの処理
-- データテレグラムとTeachInテレグラム
+- データテレグラムと Teach-In テレグラム
 - テレグラムフィルター
 
 ### 必要機材
-
-- GitHub にアクセス出来る Windows PC
 
 - Visual Studio
 
@@ -35,9 +33,10 @@ Visual Studioでコンパイルする簡単なC#プログラムを動作させ�
 
 ### 実習準備と手順
 
-前述の [EnOceanWindowsSamples](https://github.com/ahidaka/EnOceanWindowsSamples) リポジトリから Windows 環境にダウンロードして、中にある「[SimpleSample](https://github.com/ahidaka/EnOceanWindowsSamples/tree/master/SimpleSample)」プロジェクトを利用できるようにしておきます。
+この演習では、前述の [EnOceanWindowsSamples](https://github.com/ahidaka/EnOceanWindowsSamples) リポジトリ内の 「[**SimpleSample**](https://github.com/ahidaka/EnOceanWindowsSamples/tree/master/SimpleSample)」 ソリューションを使用します。
 
-Visual Studioで **EnOceanSample.sln** を開き、ビルドしておきます。
+別々にダウンロードするのは面倒なので、同じものをこのリポジトリ内に含めています。最初に [**SimpleSample**](/SimpleSample/) フォルダ内にある、
+ [**EnOceanSample.sln**](/SimpleSample/EnOceanSample.sln) をVisual Studioで開き、ビルドしておきます。
 
 #### プログラム起動
 
@@ -88,7 +87,7 @@ Visual Studioで **EnOceanSample.sln** を開き、ビルドしておきます�
 
 #### Filter 登録
 
-前項のID登録では、UART から入って来る全てのEnOcean受信データに対して、登録したIDとの比較を常時行って、該当データを選択して処理を行っていました。しかしこの方法ではEnOcean デバイス 15台程度以上が常時送信する環境では、シリアルポート（コントローラー）のバッファーがオーバーフローして必要なデータを取りこぼす場合があります。
+前項のID登録では、UART から入って来る全てのEnOcean受信データに対して、登録したIDとの比較を常時行って、該当データを選択して処理を行っていました。しかしこの方法ではEnOcean デバイス 15台程度以上が常時送信する環境では、シリアルポート（コントローラー）のバッファーがオーバーフローして、データを取りこぼす場合があります。
 
 対象IDをフィルター登録することで、この問題を回避することが可能です。フィルター登録機能は、すでに **EnOceanSample** プログラムに入っているため、「**Use Filter**」にチェック後、**Start** ボタンを2回クリックして、プログラムを再スタートすることで有効にできます。
 
@@ -113,7 +112,7 @@ Visual Stuidio で **MainWindow.xaml.cs** のソースコードを開いて、**
 ----
 ## Microsoft Azure IoT Plug and Play (Preview)
 
-### 参照リポジトリ
+### 参考リポジトリ
 
 https://github.com/ahidaka/EnOcean_IoTPnP
 
@@ -134,7 +133,8 @@ Microsoft Azure IoT Central / PnP (Preview) サービスと EnOcean マルチセ
 ### 必要機材
 
 （実習に必須なもの、シミュレーター利用の場合）
-- GitHub にアクセス出来る Linux PC(Ubuntu 18.04推奨), WSL, またはRaspberry Pi
+
+- Linux PC(Ubuntu 18.04推奨), WSL, またはRaspberry Pi
 
 - Node.js + npm 実行環境
 
@@ -144,11 +144,12 @@ Microsoft Azure IoT Central / PnP (Preview) サービスと EnOcean マルチセ
 
 （以下はオプション、実機利用の場合）
 
+- Linux PC(Ubuntu 18.04推奨、WSL1は動作しません), またはRaspberry Pi
+
 - USB400J または同等品
 
 - 何らかのEnOcean センサーまたはスイッチ
 (EEP A5-02-05 の温度センサーを推奨)
-
 <br/>
 
 ### 実習準備と手順（ 1. と 2. 共通）
@@ -173,13 +174,12 @@ Microsoft Azure IoT Central / PnP (Preview) サービスと EnOcean マルチセ
     ```
  
 - ■ アドバイス<br/>
-    dps-keygen コマンドは実行して結果の文字列が得られれば良いため、必ずしも前記シミュレータープログラムと同じ環境にインストールする必要はありません。既存の Linux環境への Node.js と npm のインストールは、インストール済の他のモジュールとのバージョン整合が取れないために、苦労する場合があります。
-
-- リポジトリの入手とインストール
+    dps-keygen コマンドは実行して結果の文字列が得られれば良いため、必ずしも前記シミュレータープログラムと同じ環境にインストールする必要はありません。
     
-    前述の [EnOcean_IoTPnP](https://github.com/ahidaka/EnOcean_IoTPnP) リポジトリ全体を Linux 環境にダウンロードしておきます。
+    なお、既存の Linux環境への Node.js と npm のインストールは、インストール済の他のモジュールとのバージョン整合が取れないために、苦労する場合があります。
 
-    **7月14日以前に入手した方は、上記公開プログラムバイナリーをこのセミナー用に更新しているため、ダウンロードし直して下さい。**
+- リポジトリの入手とインストール<br/>
+    前述の [EnOcean_IoTPnP](https://github.com/ahidaka/EnOcean_IoTPnP) リポジトリの今回の実習で使用するバイナリープログラムは、このリポジトリに含めています。**7月14日以前に EnOcean_IoTPnP リポジトリを入手した方は、バイナリーをこのセミナー用に更新しているため、このリポジトリに含まれるファイルを使用して下さい。**
 
 #### デバイスキーの作成
 
@@ -198,13 +198,13 @@ Microsoft Azure IoT Central / PnP (Preview) サービスと EnOcean マルチセ
 dps-keygen -di:enocean-001 -mk:{上記で入手した「主キー」}
 ```
 
-di:パラメータで指定するデバイスID は、任意に設定可能です。今回の事例では、enocean-001 としています。このキー生成に使用したデバイス名も、後でアプリケーション起動時に使用するため、保存しておきます。
+di:パラメータ で指定するデバイスID は、任意に設定可能です。今回の事例では、enocean-001 としています。このキー生成に使用したデバイス名も、後でアプリケーション起動時に使用するため、保存しておきます。
 
 <br/>
 
-### シミュレーター版の実行
+### シミュレーター版の動作手順
 
-手順が簡単のため、実デバイスを持っている場合でも、先にシミュレーター プログラムで動作確認しておくことをお勧めします。
+ここからは、シミュレーター版プログラムを実行する手順の説明です。簡単なに実行できるため、実デバイスを持っている場合でも、先にシミュレーター プログラムで動作確認しておくことをお勧めします。
 
 #### シミュレーターのインストール
 
@@ -226,19 +226,18 @@ di:パラメータで指定するデバイスID は、任意に設定可能で�
 ./simulatepnp [デバイス ID] [ID スコープ] [デバイス キー]
 ```
 
-#### 例
+#### 実行例
 
 ```sh
 ./simulatepnp enocean-001 0ne0010FFFF 1rmxGaeTzBsCarlTaxyzOL9XXXXXXXXXXXXXXXXwOUg=
 ```
 
-４．動作検証
+### シミュレーター版の動作検証
 
-前項１．で作成したアプリケーションのデバイス画面を開きます。前項でのプログラムの実行後、Plug and Play 動作でテンプレートとデバイスが自動作成されるには、30秒程度の時間がかかるため、少し待ちます。やがて、下記画面例の様に「デバイス」>「すべてデバイス」に「EnOcean PnP Test-2」のテンプレート名が現れ、その下に前項のシミュレーター プログラム起動時に指定した「デバイス ID」（この例では enocean-001 ）が表示されます。
+前項で作成したアプリケーションのデバイス画面を開きます。プログラムの実行後、Plug and Play 動作でテンプレートとデバイスが自動作成されるには、30秒程度の時間がかかるため、少し待ちます。やがて、下記画面例の様に「デバイス」>「すべてデバイス」に「EnOcean PnP Test-2」のテンプレート名が現れ、その下に前項のシミュレーター プログラム起動時に指定した「デバイス ID」（この例では enocean-001 ）が表示されます。
 
 [![iotc-device-p65.png](image/iotc-device-p65.png "デバイスが画面")](image/iotc-device.png)
-
-##### 画面：すべてデバイスでの デバイス ID 表示
+画面６　すべてデバイスでの デバイス ID 表示
 
 この画面で作成した「デバイスID」（この例では enocean-001 ）をクリックして「デバイス情報画面」を表示させます。さらに30秒程度待つと、自動的に生成されたグラムやデバイス情報画面での描画が始まります。
 
@@ -246,34 +245,89 @@ di:パラメータで指定するデバイスID は、任意に設定可能で�
 
 [![iotc-sim1-p50.png](image/iotc-sim1-p50.png "シミュレーター動作画面")](image/iotc-sim1.png)
 
-##### 画面：シミュレーター動作画面例
+画面７　シミュレーター動作画面例
 
-５．動作終了
+#### 動作終了
 
 起動した Linux Shell 画面で、「Control-C」 を入力してシミュレーター プログラムを終了します。
 
-////////
+<br/>
 
-- 機材の準備
-    STM550J と USB400J（または同等品）を用意してください。USB400J は動作環境マシンに装着します。
-    Windows PC を使用して、EnOcean Dolphin View Advance ツールを使用して同様確認をしておきます。
+### 実機版の動作手順
 
-- ■アドバイス：<br/>
+以降は、実際のEnOceanセンサーデバイスを使用して、Azure IoT Central にデータを転送する手順の説明です。
+
+実機での動作は、EnOceanゲートウェイプログラムをインストールして設定、実行する以外は、前項 **シミュレーター版の動作手順** と同じです。また使用する IoT Central のアプリケーションや **デバイス ID**、**デバイス キー** も流用可能です。従って事前にトラブルを避けるためにも、前項の「シミュレーターでの動作」の項を一度実行して、試しておくことをお勧めします。
+
+
+#### 機材の準備
+
+STM550J と USB400J（または同等品）を用意してください。USB400J は動作環境マシンに装着します。はじめてEnOcean デバイスを使用する方は、Windows PC でEnOcean Dolphin View Advance ツールを使用して同様確認をしておくと良いでしょう。
+
+- ■アドバイス<br/>
     EnOcean Dolphin View Advance アプリケーションは、EnOcean GmbH の [開発ツールダウンロードページ](https://www.enocean.com/en/support/download/) から入手します。
 
     最新版は以下の3.8.6.0 です。入手にはメールアドレスによるアカウント登録が必要です。
     https://www.enocean.com/en/support/download/dolphinview-advanced/DolphinViewAdvanced3_8_6_0.exe/
 
+- ■参考<br/>
     EnOcean ゲートウェイ プログラム は以下の別リポジトリにあります。
     
     [EnOceanGateways リポジトリ](https://github.com/ahidaka/EnOceanGateways)
 
 
-２．デバイスキーの作成
+#### デバイスキーの作成
 
-デバイスキーの生成手順は、前項の手順と同じです。また、前項で作成した デバイス ID やデバイスキー を流用することも可能ですし、今回例えば デバイス ID を **enocean-002** 等として、新たに作成して使用することも可能です。
+デバイスキーの生成手順は、前項のシミュレーターの手順と同じです。また、前項で作成した デバイス ID やデバイスキー をそのまま流用することも可能ですし、今回例えば デバイス ID を **enocean-002** 等として、新たに作成して使用することも可能です。
 
-３．センサー登録
+#### センサー登録と調査
+
+今回のデモ＆実習で使用する Plug and Play プログラムは本来、EnOcean マルチセンサーを接続して動作させることを想定して作られたものです。しかしEnOcean マルチセンサーを入手することはまだ難しいため、他のセンサーで代替するための仕組みを組み込んでいます。
+
+まず、動作環境にEnOcean ゲートウェイ プログラム (dpride:DolphinRide) の作業用ディレクトリ (/var/tmp/dprode) を、次の様に作成します。
+
+```sh
+mkdir /var/tmp/dpride
+```
+
+次に動作環境にインストールした EnOcean ゲートウェイ プログラム(dpride)を、次のオプションで「センサー登録モード」起動して、手持ちのEnOceanセンサーを動作環境に登録します。
+
+```sh
+sudo ./dpride -c -r -x
+```
+
+プログラムは USB400J または同等品が、/dev/ttyUSB0 または /dev/ttyS0 に接続していることを想定しているため、必要に応じて次の様に「-p PORT名」オプションで、接続ポートの変更を行って下さい。
+
+- ポート指定の起動例
+
+```sh
+sudo ./dpride -c -r -x -p /dev/ttyUSB1
+```
+
+dprideの起動を確認した後、手持ちのEnOcean センサーの **LEARNボタン** を押してセンサーのEEPを環境に登録します。複数個登録しても構いません。
+
+登録完了後は、「Control-C」で ゲートウェイ プログラムを一旦終了します。
+
+デバイスを管理する、**/var/tmp/dpride/eofilter.txt** ファイルには、次の様にEnOceanデバイスの情報が登録されるので、確認して下さい。
+
+```csv
+0400200F,A5-04-01,Temperature and Humidity Sensor,HUM,TMP,TSN
+0400070A,A5-02-05,Temperature Sensor Range 0°C to +40°C,TMP1
+```
+
+このファイルには次の形式でデバイス情報がCSV形式で保管されています。
+
+```csv
+EnOcean ID, EEP or GP, Device DEscription, Point ShortCut, Point ShortCut, ...
+```
+
+このうち HUM,TMP 等の Point ShortCut 名を後で使用します。ShortCut名は一般に、 HUM（湿度）, TMP（温度） 等、分かり易い名称と連番が割り当てられます。下記のEEPViewerでXMLファイルまたはPDFファイルを参照して詳しく確認することも可能です。
+
+- Point Shortcut 名の確認（EEPViewer）
+
+    [http://tools.enocean-alliance.org/EEPViewer/](http://tools.enocean-alliance.org/EEPViewer/)
+
+#### センサー登録
 
 動作環境にインストールした EnOcean ゲートウェイ プログラム(dpride)を、次のオプションで「センサー登録モード」起動して、マルチセンサーを動作環境に登録します。
 
@@ -281,43 +335,49 @@ di:パラメータで指定するデバイスID は、任意に設定可能で�
 sudo ./dpride -c -r
 ```
 
-- ■アドバイス：<br/>
-    USB等のデバイスIOポートにアクセスするため、管理者権限で実行します。<br/>
-    初出時、"sudo" が抜けいました。申し訳ございません。
-
 その後マルチセンサーの **LEARNボタン** を押して、デバイス登録を完了します。
 起動画面にデバイス登録済のメッセージが出力されます。
 
-![マルチセンサーの LEARNボタン](image/learn-p25mark.jpg)
+#### プログラムの実行
 
-- ■アドバイス：<br/>
-    LEARNボタンは奥まった場所にあるので、クリップの先などで押します。
+先にPlug and Play 実行プログラムを起動します。
 
-登録完了後は、「Control-C」で ゲートウェイ プログラムを一旦終了します。
+```sh
+./enoceanpnp [デバイス ID] [ID スコープ] [デバイス キー] [TP=ShortCut] [HU=ShortCut]...
+```
 
-４．実行
+- 実行例
 
-先にEnOcean ゲートウェイ プログラム (dpride) をオペレーション モードで起動します。
+```sh
+./enoceanpnp enocean-002 0ne0010FFFF 1rmxGaeTzBsCarlTaxyzOL9XXXXXXXXXXXXXXXXwOUg= TP=TMP1 HU=HUM
+```
+
+TP=TMP1 HU=HUM という記述はデータを読み出すShortCut名 の変更を指定します。enoceanpnp プログラムは元々、次のShortCut名を持つマルチセンサーだけを使用することを想定していました。今回の実習では、起動時のオプションとして同等機能を持つセンサーに割り当て変更して利用できる様に変更しています。元々のShortCut名は次の表で確認できます。
+
+| 機能 | ShortCut | iothub name | 型 | 表示単位 | 最小 | 最大 | 備考 |
+| :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
+| 温度センサー | TP | temperature | double | ℃ | -40 | 60 |  |
+| 湿度センサー | HU | humidity | double | % | 0 | 100 |  |
+| 照度センサー | IL | illumination | double | lux | 0 | 100000 |  |
+| 加速度センサー状態 | AS | accelerations | enum | - | 0 | 3 | Periodic Update(0), Threshold 1 exceeded(1), Threshold 2 exceeded(2) |
+| 加速度センサー(X) | AX | accelerationx | double | g | -2.5 | 2.5 |  |
+| 加速度センサー(Y) | AY | accelerationy | double | g | -2.5 | 2.5 |  |
+| 加速度センサー(Z) | AZ | accelerationz | double | g | -2.5 | 2.5 |  |
+| 開閉センサー | CO | contact | enum | - | 0 | 1 | Open(0), Close(1) |
+
+<br/>
+
+次に別の Shell画面を開いて、EnOcean ゲートウェイ プログラム (dpride) をオペレーション モードで起動します。各プログラムをバックグラウンドで実行することも可能ですが、それぞれ起動画面に動作状況ログを出力するのと、ともに「Control-C」で停止させることから、別画面で起動した方が使い勝手が良いです。
+
 ```sh
 ./dpride -o
 ```
-次に別の Shell画面を開いて、Plug and Play 実行プログラムを起動します。
-各プログラムをバックグラウンドで実行することも可能ですが、それぞれ起動画面に動作状況ログを出力するのと、ともに「Control-C」で停止させることから、別画面で起動した方が使い勝手が良いです。
-```sh
-./enoceanpnp [デバイス ID] [ID スコープ] [デバイス キー]
-```
 
-#### 例
+#### 動作検証
 
-```sh
-./enoceanpnp enocean-002 0ne0010FFFF 1rmxGaeTzBsCarlTaxyzOL9XXXXXXXXXXXXXXXXwOUg=
-```
+動作検証も基本的には、前項のシミュレーターの場合と同じです。起動時に指定した デバイスID を指定して、IoT Central のデバイス情報表示画面で確認可能です。データ監視間隔の5秒間のタイムラグがありますが、加速度センサーや開閉センサーは、ほぼ即時にセンサーデータを送信するため、ほぼリアルタイムでの動作確認ができます。
 
-５．動作検証
-
-動作検証も基本的には、前項のシミュレーターの場合と同じです。起動時に指定した デバイスID を指定して、IoT Central のデバイス情報表示画面で確認可能です。加速度センサーや開閉センサーは、ほぼ即時にセンサーデータを送信するため、ほぼリアルタイムでの動作確認ができます。
-
-６．動作終了
+#### 動作終了
 
 dpride enoceanpnp ともに「Control-C」 を入力してシミュレーター プログラムを終了します。
 
